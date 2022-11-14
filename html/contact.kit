@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;600;700&display=swap" rel="stylesheet">
+    <link href="dist/css/hamburger.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="dist/css/style.min.css">
+    <link rel="stylesheet" href="dist/css/contact.min.css">
+    <script src="https://kit.fontawesome.com/57a9e3afe5.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- @include 'nav.kit' -->
+    <header class="header">
+        <h2 class="section-title"><span class="underline">Kontakt</span></h2>
+    </header>
+    <section class="contact section-padding">
+        <div class="wrapper">
+            <div class="contact__section--form">
+                <h3 class="contact__form--title">Napisz do nas!</h3>
+                <p class="contact__form--text">Nie czekaj i skorzystaj z poniższego formularza</p>
+                <form class="contact__form">
+                    <label for="name" class="contact__form--label">Imię:</label>
+                    <input type="text" class="contact__form--input" id="name">
+                    <label for="email" class="contact__form--label">Adres e-mail:</label>
+                    <input type="text" class="contact__form--input" id="email">
+                    <label for="msg" class="contact__form--label">Wiadomość:</label>
+                    <textarea class="contact__form--textarea" id="msg"></textarea>
+
+                    <button class="contact__form--btn">Wyślij</button>
+                </form>
+            </div>
+            <div class="contact__mobile">
+                <a href="https://goo.gl/maps/WQ4FPY8oWiuYm6bq7" target="_blank" class="contact__mobile--link">Znajdź nas na mapie!</a>
+            </div>
+            <div class="contact__location">
+                <p class="contact__location--text">Tu nas znajdziesz!</p>
+                <div class="map-item">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10239.593805595492!2d19.8928489!3d50.0881881!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x47a12cd367a1f34e!2sRestauracja%20McDonald&#39;s!5e0!3m2!1spl!2spl!4v1665255121126!5m2!1spl!2spl"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer__bottom">
+            <p class="footer__bottom--text">&copy; <span class="footer__year"></span> Forest Group Company Ltd.</p>
+        </div>
+    </footer>
+
+    <script src="dist/js/main.min.js"></script>
+</body>
+
+</html>

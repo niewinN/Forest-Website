@@ -1,0 +1,212 @@
+@use "./colors" as c;
+
+.hamburger {
+
+	&-inner,
+	&-inner::before,
+	&-inner::after {
+		background-color: #000;
+	}
+}
+
+.header {
+	background-image: none;
+	margin-top: 0;
+}
+
+.nav {
+	&-mobile {
+		z-index: 100;
+	}
+}
+
+.section-title {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	color: black;
+}
+
+.contact {
+	min-height: 100vh;
+	margin: 0 1em 5em 1em;
+
+	&__section--form {
+		padding: 2em;
+		border-radius: 8px;
+		box-shadow: 0 0 10px black;
+	}
+
+	&__form {
+		display: flex;
+		flex-direction: column;
+		margin: 2em 0;
+
+		&--label {
+			font-size: 1.5rem;
+			margin: 1.5em 0 1em 0;
+		}
+
+		&--input,
+		&--textarea {
+			font-family: "Montserrat", sans-serif;
+			border: none;
+			border-bottom: 1px solid c.$green;
+			font-size: 1.3rem;
+		}
+
+		&--input {
+			padding: 0.25em;
+			outline: none;
+		}
+
+		&--textarea {
+			max-height: 100vh;
+			min-height: 15vh;
+			outline-color: #888;
+			resize: vertical;
+		}
+
+		&--btn {
+			font-size: 1.5rem;
+			margin-top: 5em;
+			padding: 0.5em;
+			border-radius: 8px;
+			background-color: c.$green;
+			border: none;
+			cursor: pointer;
+		}
+	}
+
+	&__form--title {
+		margin-bottom: 1em;
+		font-size: 2.2rem;
+		text-align: center;
+	}
+
+	&__form--text {
+		font-size: 1.5rem;
+		text-align: center;
+		margin-bottom: 3em;
+	}
+
+	&__mobile {
+		margin-top: 3em;
+		text-align: right;
+
+		&--link {
+			font-size: 1.8rem;
+			text-decoration: none;
+			color: black;
+			cursor: pointer;
+		}
+	}
+
+	&__location {
+		display: none;
+	}
+}
+
+@media (min-width: 375px) {
+	.contact {
+		&__form {
+			&--label,
+			&--input,
+			&--textarea,
+			&--btn {
+				font-size: 1.8rem;
+			}
+		}
+
+		&__form--title {
+			font-size: 2.7rem;
+		}
+
+		&__form--text {
+			font-size: 2rem;
+		}
+	}
+
+	.section-title {
+		font-size: 4rem;
+	}
+}
+
+@media (min-width: 768px) {
+	.contact {
+		margin: 0 1em 8em 1em;
+
+		&__form {
+			&--label,
+			&--input,
+			&--textarea,
+			&--btn {
+				font-size: 2.5rem;
+			}
+		}
+
+		&__form--title {
+			font-size: 3.5rem;
+		}
+
+		&__form--text {
+			font-size: 2.5rem;
+		}
+
+		&__mobile {
+			&--link {
+				font-size: 2.5rem;
+			}
+		}
+	}
+
+	.section-title {
+		font-size: 5rem;
+	}
+}
+
+@media (min-width: 992px) {
+
+	.contact {
+		.wrapper {
+			display: flex;
+			box-shadow: 0 0 10px black;
+			border-radius: 8px;
+			overflow: hidden;
+		}
+
+		&__section--form {
+			border: none;
+			box-shadow: none;
+		}
+
+		&__mobile {
+			display: none;
+		}
+
+		&__location {
+			display: flex;
+			flex-direction: column;
+			width: 50%;
+			margin-left: 2em;
+			background-color: c.$green;
+
+			&--text {
+				font-size: 3.5rem;
+				text-align: center;
+				margin: 2em;
+				font-weight: 600;
+			}
+
+			.map-item {
+				height: 100%;
+				background-color: #fff;
+
+				iframe {
+					height: 100%;
+				}
+			}
+		}
+	}
+}

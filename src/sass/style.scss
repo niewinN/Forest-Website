@@ -1,0 +1,651 @@
+@use "./colors" as c;
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: "Montserrat", sans-serif;
+	background-color: c.$white;
+	// width: 100%;
+}
+.section-padding {
+	padding: 0 2em 5em;
+}
+
+.section-title {
+	font-size: 3rem;
+	font-weight: 400;
+	text-align: center;
+	text-transform: uppercase;
+	padding: 1.5em;
+
+	.underline {
+		border-bottom: 2px solid c.$green;
+	}
+}
+
+.wrapper {
+	max-width: 1200px;
+	margin: 0 auto;
+	width: 100%;
+}
+
+//HAMBURGER
+.hamburger {
+	z-index: 5000;
+
+	&-inner,
+	&-inner::before,
+	&-inner::after {
+		background-color: c.$black;
+	}
+
+	.black-bars-color,
+	.black-bars-color::after,
+	.black-bars-color::before {
+		background-color: c.$black;
+	}
+}
+
+
+
+//HEADER
+.nav {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 1000;
+	background-color: #fff;
+	box-shadow: 0 0 5px c.$black;
+
+	&__menu {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		min-height: 10vh;
+
+		.nav__logo {
+			font-size: 3rem;
+			overflow: hidden;
+
+			&--name {
+				text-decoration: none;
+				padding: 1em;
+				color: c.$black;
+
+				i {
+					margin-right: 0.25em;
+				}
+			}
+		}
+	}
+
+	&-mobile {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		background-color: #fff;
+		z-index: 1000;
+		transform: translateX(-102%);
+		position: fixed;
+		transition: transform 0.3s;
+
+		&--active {
+			transform: translateX(0);
+		}
+	}
+
+	&-desktop {
+		display: none;
+	}
+
+	&__link {
+		text-decoration: none;
+		color: c.$black;
+		padding: 0.7em;
+		font-size: 3rem;
+		border-bottom: 1px solid transparent;
+		transition: border-bottom 0.3s;
+	}
+
+	&__link:hover {
+		border-bottom: 1px solid c.$black;
+	}
+}
+
+.header {
+	position: relative;
+	min-height: 45vh;
+	margin-top: 10vh;
+	background-image: url("../img/header_mini.jpg");
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-start;
+	color: c.$white;
+	z-index: 5;
+
+	&__shadow {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.7);
+		z-index: -1;
+	}
+
+	&__text {
+		padding: 2em;
+		
+		&--min {
+			font-size: 1.2rem;
+		}
+	}
+
+	&__title {
+		margin-top: 0.25em;
+		font-size: 2rem;
+	}
+}
+
+//MAIN
+.aboutus {
+	&__box {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__img {
+		width: 100%;
+		margin-bottom: 1em;
+		overflow: hidden;
+	}
+
+	&__title {
+		font-size: 2rem;
+		margin-bottom: 0.5em;
+	}
+
+	&__text {
+		font-size: 1.7rem;
+	}
+}
+
+//HERO-IMG
+.hero-img {
+	position: relative;
+	background-image: url("../img/hero_mini.jpg");
+	min-height: 50vh;
+	background-position: left;
+
+	&__shadow {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: rgba(0, 0, 0, 0.7);
+	}
+
+	&__text {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		color: c.$white;
+		font-size: 3rem;
+		text-align: center;
+		border: 2px solid c.$white;
+		padding: 0.5em 1.3em;
+	}
+}
+
+//OFFERS
+.offers {
+	.wrapper {
+		position: relative;
+	}
+	
+	&__page {
+		text-align: right;
+		font-size: 2rem;
+		font-weight: bold;
+		
+		&--link {
+			text-decoration: none;
+			color: c.$green;
+			padding: 1em 0 2em 1em;
+
+			&:hover {
+				color: #999;
+			}
+		}
+	}
+
+	&__text {
+		text-align: center;
+		font-size: 2em;
+	}
+
+	&__cards {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	&__card:hover {
+		transform: scale(1.05);
+	}
+
+	&__card {
+		display: flex;
+		flex-direction: column;
+		border-radius: 8px;
+		box-shadow: 0 0 10px c.$black;
+		margin: 2em auto;
+		padding: 3em;
+		width: 100%;
+		overflow: hidden;
+		transition: transform 0.3s;
+		max-width: 450px;
+
+		&--title {
+			font-size: 5rem;
+			text-align: center;
+			font-weight: 400;
+		}
+
+		&--price {
+			font-size: 5rem;
+			text-align: center;
+			font-weight: 600;
+			padding: 0.5em;
+		}
+
+		&--list {
+			list-style: none;
+			margin-bottom: 5em;
+			height: 100%;
+			display: block;
+
+			.no-offer {
+				color: #888;
+			}
+
+			&-item {
+				font-size: 1.7rem;
+				padding: 0.25em;
+
+				i {
+					padding: 2px;
+				}
+
+				.fa-check {
+					color: c.$green;
+				}
+
+				.fa-minus {
+					color: #888;
+				}
+			}
+		}
+
+		&--btn {
+			margin: 2em auto 0;
+			border: none;
+			box-shadow: 0 0 10px c.$black;
+			border-radius: 8px;
+			padding: 0.5em 2em;
+			font-size: 1.5rem;
+			width: 80%;
+			cursor: pointer;
+			transition: background-color 0.3s;
+
+			&:hover {
+				background-color: c.$green;
+			}
+
+			&-color {
+				background-color: c.$green;
+				transition: background-color 0.3s;
+
+				&:hover {
+					background-color: c.$white;
+				}
+			}
+		}
+	}
+}
+
+//FOOTER
+.footer {
+	background-color: rgb(250, 247, 247);
+
+	&__logo {
+		font-size: 3rem;
+		display: flex;
+		justify-content: center;
+		padding: 1em;
+		color: c.$black;
+
+		&__name {
+			margin-left: 0.25em;
+		}
+	}
+
+	&__boxes {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		min-height: 20vh;
+	}
+
+	&__box {
+		padding: 2em;
+
+		&--title {
+			font-size: 2rem;
+		}
+
+		&--list {
+			list-style: none;
+			font-size: 1.5rem;
+			cursor: pointer;
+			color: c.$black;
+
+			&-item {
+				padding: 0.25em;
+			}
+		}
+	}
+
+	&__bottom {
+		padding: 1.5em;
+		border-top: 1px solid #888;
+
+		&--text {
+			text-align: center;
+		}
+	}
+}
+
+// MEDIA
+
+@media (min-width: 768px) {
+	.section-title {
+		font-size: 5rem;
+
+		.underline {
+			border-bottom: 3px solid c.$green;
+		}
+	}
+
+	.nav {
+		&__menu {
+			.nav__logo {
+				font-size: 4rem;
+			}
+
+			.hamburger {
+				margin-right: 1em;
+			}
+		}
+	}
+
+	.header {
+		background-image: url("../img/header.jpg");
+
+		&__text--min {
+			font-size: 2rem;
+		}
+
+		&__title {
+			font-size: 3.5rem;
+		}
+	}
+
+	.nav {
+		&__link {
+			font-size: 4.5rem;
+		}
+	}
+
+	.aboutus {
+		&__box {
+			display: flex;
+			flex-direction: row;
+
+			&-text {
+				width: 50%;
+				padding-left: 3em;
+			}
+
+			&-img {
+				width: 50%;
+			}
+		}
+
+		&__title {
+			font-size: 2.2rem;
+		}
+
+		&__text {
+			font-size: 1.8rem;
+		}
+	}
+
+	.hero-img {
+		background-size: cover;
+
+		&__text {
+			font-size: 4.5rem;
+			border: 3px solid c.$white;
+			padding: 0.5em 3em;
+			width: 80%;
+		}
+	}
+
+	.offers {
+		&__page {
+			font-size: 3rem;
+		}
+
+		&__text {
+			font-size: 3rem;
+		}
+
+		&__cards {
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
+
+		&__card {
+			width: 45%;
+			
+			&--price {
+				font-size: 6rem;
+			}
+
+			&--list {
+				margin-bottom: 1em;
+
+				&-item {
+					font-size: 2rem;
+					padding: 0.25em;
+				}
+			}
+
+			&--btn {
+				padding: 0.7em 2em;
+				font-size: 1.7rem;
+			}
+		}
+	}
+
+	.footer {
+		&__logo {
+			font-size: 5rem;
+		}
+
+		&__box {
+			padding: 3.5em;
+
+			&--title {
+				margin-bottom: 0.5em;
+				font-size: 2.5rem;
+			}
+
+			&--list {
+				font-size: 2rem;
+			}
+		}
+
+		&__bottom {
+			&--text {
+				font-size: 1.7rem;
+			}
+		}
+	}
+}
+
+@media (min-width: 992px) {
+	.hamburger {
+		display: none;
+	}
+
+	.header {
+		&__title {
+			font-size: 4rem;
+		}
+
+		&__text--min {
+			font-size: 2.5rem;
+		}
+	}
+
+	.nav {
+		&__menu {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+
+		&-desktop {
+			display: flex;
+			height: 10vh;
+		}
+
+		&__link {
+			display: flex;
+			align-items: center;
+			font-size: 3rem;
+			border-bottom: none;
+			transition: background-color 0.3s, color 0.3s;
+		}
+		.active {
+			background-color: #333;
+			color: white;
+		}
+
+		&__link:hover {
+			background-color: c.$black;
+			color: white;
+		}
+	}
+
+	.hero-img {
+		background-image: url("../img/hero.jpg");
+	}
+
+	.aboutus {
+		&__title {
+			font-size: 3rem;
+		}
+
+		&__text {
+			font-size: 2.3rem;
+		}
+	}
+
+	.offers {
+		&__page {
+			font-size: 3.8rem;
+		}
+
+		&__text {
+			font-size: 4rem;
+			margin-bottom: 1em;
+		}
+
+		&__card {
+			width: 30%;
+		}
+	}
+
+	.footer {
+		&__box {
+			&--title {
+				font-size: 3rem;
+			}
+
+			&--list {
+				font-size: 2.5rem;
+			}
+		}
+
+		&__bottom {
+			border-top: 3px solid #888;
+			margin-top: 8em;
+		}
+	}
+}
+
+@media (min-width: 1200px) {
+
+	.hero-img {
+		&__text {
+			padding: 0.75em 3em;
+		}
+	}
+
+	.aboutus {
+		&__title {
+			font-size: 3.5rem;
+		}
+
+		&__text {
+			font-size: 3rem;
+		}
+	}
+
+	.footer {
+		&__logo {
+			font-size: 6rem;
+		}
+
+		&__box {
+			padding: 5em;
+
+			&--title {
+				font-size: 3.5rem;
+			}
+
+			&--list {
+				font-size: 3rem;
+			}
+		}
+	}
+}
